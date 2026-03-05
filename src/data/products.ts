@@ -13,7 +13,7 @@ export const CATEGORIES = [
   { id: 'brunch', name: 'Brunch', icon: '🍳', count: 5, image: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=200&h=200' },
   { id: 'burger', name: 'Burger', icon: '🍔', count: 3, image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=200&h=200' },
   { id: 'poulet', name: 'Poulet Frit', icon: '🍗', count: 3, image: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=200&h=200' },
-  { id: 'sandwich', name: 'Sandwich', icon: '🥪', count: 3, image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=200&h=200' },
+  { id: 'salade', name: 'Salade', icon: '🥗', count: 2, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&h=200' },
   { id: 'jus', name: 'Jus de Fruits', icon: '🍹', count: 3, image: 'https://images.unsplash.com/photo-1536816579748-4fcb3f49a7f4?auto=format&fit=crop&w=200&h=200' },
 ];
 
@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
     name: 'Sauté de Tofu aux Légumes',
     price: 12.00,
     rating: 4,
-    category: 'sandwich',
+    category: 'salade',
     image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&h=400',
     description: 'Un mélange croquant de légumes frais et de tofu ferme, sauté dans une sauce soja légère.',
     ingredients: ['Tofu', 'Brocoli', 'Carottes', 'Poivrons', 'Sauce soja', 'Gingembre']
@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
     name: 'Salade Healthy',
     price: 11.00,
     rating: 5,
-    category: 'sandwich',
+    category: 'salade',
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&h=400',
     description: 'Un bol d\'énergie avec quinoa, avocat, pois chiches et vinaigrette au citron.',
     ingredients: ['Quinoa', 'Avocat', 'Pois chiches', 'Tomates cerises', 'Citron']
@@ -173,7 +173,7 @@ export const PRODUCTS: Product[] = [
     name: 'Club Sandwich Classique',
     price: 14.00,
     rating: 4,
-    category: 'sandwich',
+    category: 'brunch',
     image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&h=400',
     description: 'Dinde fumée, bacon croustillant, laitue, tomate et mayonnaise sur pain toasté.',
     ingredients: ['Dinde', 'Bacon', 'Laitue', 'Tomate', 'Mayonnaise', 'Pain de mie']
