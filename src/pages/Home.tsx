@@ -6,8 +6,15 @@ import { CATEGORIES, PRODUCTS } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
 const Home = () => {
-  const [storyOpen, setStoryOpen] = React.useState(false);
   const [chefOpen, setChefOpen] = React.useState(false);
+  const dishesScrollRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollDishes = (direction: 'left' | 'right') => {
+    if (dishesScrollRef.current) {
+      const scrollAmount = dishesScrollRef.current.offsetWidth * 0.55;
+      dishesScrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="pt-20">
@@ -117,18 +124,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-4 md:py-6 relative overflow-hidden">
+      {/* Our Story Section - hidden on mobile */}
+      <section className="hidden md:block py-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-cream/50 -skew-x-12 translate-x-1/4" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">
-            {/* Image hidden on mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative hidden md:block"
+              className="relative"
             >
               <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl">
                 <img
@@ -138,7 +144,7 @@ const Home = () => {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="absolute -bottom-10 -right-10 bg-primary p-12 rounded-3xl shadow-2xl hidden md:block">
+              <div className="absolute -bottom-10 -right-10 bg-primary p-12 rounded-3xl shadow-2xl">
                 <div className="text-white text-center">
                   <div className="text-5xl font-serif italic mb-2">25</div>
                   <div className="text-xs font-bold uppercase tracking-widest opacity-80">Années d'Excellence</div>
@@ -148,43 +154,33 @@ const Home = () => {
             </motion.div>
 
             <div>
-              <div className="inline-flex items-center gap-3 mb-3 md:mb-6">
-                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-primary">Notre Histoire</span>
+              <div className="inline-flex items-center gap-3 mb-6">
+                <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Notre Histoire</span>
                 <div className="h-[1px] w-12 bg-primary" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-serif italic mb-4 md:mb-8 leading-tight">
-                La Passion du Goût, <br className="hidden md:block" />
+              <h2 className="text-5xl font-serif italic mb-8 leading-tight">
+                La Passion du Goût, <br />
                 Le Respect du <span className="text-primary">Produit</span>
               </h2>
-              <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-8 leading-relaxed font-serif italic">
+              <p className="text-dark/60 text-lg mb-8 leading-relaxed font-serif italic">
                 Fondé en 1998, Brunch&Co est né d'une idée simple : redonner ses lettres de noblesse à la cuisine de terroir.
               </p>
-              {/* Collapsible on mobile */}
-              <div className={`${storyOpen ? 'block' : 'hidden'} md:block`}>
-                <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-12 leading-relaxed">
-                  Chaque plat qui sort de notre cuisine est une célébration de l'artisanat culinaire. Nous croyons que la simplicité est la sophistication suprême, et c'est cette philosophie qui guide chacun de nos gestes.
-                </p>
-              </div>
-              <button
-                onClick={() => setStoryOpen(!storyOpen)}
-                className="md:hidden flex items-center gap-2 text-primary font-bold text-sm mb-4"
-              >
-                {storyOpen ? 'Réduire' : 'En savoir plus'}
-                <ChevronDown size={16} className={`transition-transform ${storyOpen ? 'rotate-180' : ''}`} />
-              </button>
+              <p className="text-dark/60 text-lg mb-12 leading-relaxed">
+                Chaque plat qui sort de notre cuisine est une célébration de l'artisanat culinaire. Nous croyons que la simplicité est la sophistication suprême, et c'est cette philosophie qui guide chacun de nos gestes.
+              </p>
 
-              <div className="grid grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-12">
+              <div className="grid grid-cols-2 gap-8 mb-12">
                 <div>
-                  <div className="text-2xl md:text-3xl font-serif italic text-primary mb-1">100%</div>
-                  <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-dark/40">Fait Maison</div>
+                  <div className="text-3xl font-serif italic text-primary mb-1">100%</div>
+                  <div className="text-sm font-bold uppercase tracking-widest text-dark/40">Fait Maison</div>
                 </div>
                 <div>
-                  <div className="text-2xl md:text-3xl font-serif italic text-primary mb-1">Bio</div>
-                  <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-dark/40">Certifié Local</div>
+                  <div className="text-3xl font-serif italic text-primary mb-1">Bio</div>
+                  <div className="text-sm font-bold uppercase tracking-widest text-dark/40">Certifié Local</div>
                 </div>
               </div>
 
-              <Link to="/a-propos" className="inline-flex items-center gap-3 text-dark font-bold group text-sm md:text-base">
+              <Link to="/a-propos" className="inline-flex items-center gap-3 text-dark font-bold group">
                 <span className="border-b-2 border-primary pb-1">En savoir plus sur nous</span>
                 <ArrowRight size={20} className="text-primary transition-transform group-hover:translate-x-2" />
               </Link>
@@ -208,25 +204,41 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="md:hidden flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
-            {PRODUCTS.slice(0, 3).map((product) => (
-              <Link key={product.id} to={`/product/${product.id}`} className="snap-start shrink-0 w-[70vw]">
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-lg font-serif italic mb-1">{product.name}</h3>
-                    <span className="text-primary font-bold">€{product.price}</span>
+          {/* Horizontal scroll on mobile with arrows, grid on desktop */}
+          <div className="md:hidden relative">
+            {/* Navigation arrows */}
+            <button
+              onClick={() => scrollDishes('left')}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center border border-black/10"
+            >
+              <ChevronLeft size={18} className="text-dark" />
+            </button>
+            <button
+              onClick={() => scrollDishes('right')}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center border border-black/10"
+            >
+              <ChevronRight size={18} className="text-dark" />
+            </button>
+
+            <div ref={dishesScrollRef} className="flex gap-3 overflow-x-auto pb-3 px-6 snap-x snap-mandatory scrollbar-hide">
+              {PRODUCTS.slice(0, 6).map((product) => (
+                <Link key={product.id} to={`/product/${product.id}`} className="snap-start shrink-0 w-[42vw]">
+                  <div className="relative aspect-square rounded-xl overflow-hidden shadow-md">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 left-2 right-2 text-white">
+                      <h3 className="text-xs font-serif italic leading-tight mb-0.5 line-clamp-1">{product.name}</h3>
+                      <span className="text-primary font-bold text-xs">€{product.price}</span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-12">

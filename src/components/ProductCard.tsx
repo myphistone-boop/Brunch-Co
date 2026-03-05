@@ -14,31 +14,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       whileHover={{ y: -5 }}
       className="bg-white rounded-2xl overflow-hidden card-shadow group"
     >
-      {/* Mobile: compact horizontal layout */}
+      {/* Mobile: compact grid card */}
       <div className="md:hidden">
-        <Link to={`/product/${product.id}`} className="flex gap-3 p-3">
-          <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
+        <Link to={`/product/${product.id}`} className="block">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
             <img
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute top-1 right-1 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-md flex items-center gap-0.5">
+            <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-md flex items-center gap-0.5">
               <Star size={10} className="text-yellow-400 fill-yellow-400" />
               <span className="text-[10px] font-bold">{product.rating.toFixed(1)}</span>
             </div>
           </div>
-          <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
-            <div>
-              <h3 className="font-serif italic text-base leading-tight mb-1 truncate">{product.name}</h3>
-              <p className="text-dark/50 text-xs font-serif italic line-clamp-2">{product.description}</p>
-            </div>
-            <div className="flex items-center justify-between mt-1">
+          <div className="p-3">
+            <h3 className="font-serif italic text-sm leading-tight mb-1 line-clamp-1">{product.name}</h3>
+            <div className="flex items-center justify-between">
               <span className="text-primary font-bold text-sm">€{product.price.toFixed(2)}</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-dark/40 flex items-center gap-1">
-                Détails <ArrowRight size={10} />
-              </span>
+              <ArrowRight size={12} className="text-dark/30" />
             </div>
           </div>
         </Link>
