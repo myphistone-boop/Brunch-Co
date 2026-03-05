@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="md:hidden">
         <Link to={`/product/${product.id}`} className="block">
           <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
-            <img
+            <img loading="lazy"
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover"
@@ -42,7 +42,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Desktop: original vertical layout */}
       <div className="hidden md:block">
         <Link to={`/product/${product.id}`} className="block relative aspect-square overflow-hidden">
-          <img
+          <img loading="lazy"
             src={product.image}
             alt={product.name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

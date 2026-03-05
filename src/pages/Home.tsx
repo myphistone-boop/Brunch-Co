@@ -58,8 +58,8 @@ const Home = () => {
 
           {/* Bento Grid - single image on mobile, full grid on desktop */}
           <div className="md:hidden rounded-2xl overflow-hidden shadow-xl h-48">
-            <img
-              src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=400&q=60"
               alt="Restaurant Atmosphere"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -72,7 +72,7 @@ const Home = () => {
               transition={{ delay: 0.3 }}
               className="md:col-span-2 rounded-[2rem] overflow-hidden shadow-xl"
             >
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
                 alt="Restaurant Atmosphere"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
@@ -86,7 +86,7 @@ const Home = () => {
                 transition={{ delay: 0.4 }}
                 className="rounded-[2rem] overflow-hidden shadow-xl"
               >
-                <img
+                <img loading="lazy"
                   src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=400&h=400"
                   alt="Chef at work"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
@@ -99,7 +99,7 @@ const Home = () => {
                 transition={{ delay: 0.5 }}
                 className="rounded-[2rem] overflow-hidden shadow-xl"
               >
-                <img
+                <img loading="lazy"
                   src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=400&h=400"
                   alt="Signature Dish"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
@@ -113,7 +113,7 @@ const Home = () => {
               transition={{ delay: 0.6 }}
               className="md:col-span-1 rounded-[2rem] overflow-hidden shadow-xl"
             >
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=400&h=800"
                 alt="Brunch"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
@@ -137,7 +137,7 @@ const Home = () => {
               className="relative"
             >
               <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl">
-                <img
+                <img loading="lazy"
                   src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
                   alt="Chef at work"
                   className="w-full h-full object-cover"
@@ -224,7 +224,7 @@ const Home = () => {
               {PRODUCTS.slice(0, 6).map((product) => (
                 <Link key={product.id} to={`/product/${product.id}`} className="snap-start shrink-0 w-[42vw]">
                   <div className="relative aspect-square rounded-xl overflow-hidden shadow-md">
-                    <img
+                    <img loading="lazy"
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover"
@@ -253,7 +253,7 @@ const Home = () => {
               >
                 <Link to={`/product/${product.id}`}>
                   <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl">
-                    <img
+                    <img loading="lazy"
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -390,7 +390,7 @@ const Home = () => {
               </button>
 
               <div className="flex items-center gap-4 md:gap-6">
-                <img
+                <img loading="lazy"
                   src="https://images.unsplash.com/photo-1583394293214-28dea15ee548?auto=format&fit=crop&w=100&q=80"
                   alt="Signature"
                   className="h-12 md:h-16 opacity-40 grayscale"
@@ -410,7 +410,7 @@ const Home = () => {
               className="order-1 lg:order-2 relative"
             >
               <div className="relative z-10 rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl aspect-video">
-                <img
+                <img loading="lazy"
                   src="https://storage.googleapis.com/novelec_assets/RESTAU%20BRUNCH/Restau%20CUISNE.jpg"
                   alt="L'Équipe Brunch&Co"
                   className="w-full h-full object-cover"

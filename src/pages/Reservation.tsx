@@ -86,7 +86,7 @@ const Reservation = () => {
               transition={{ delay: 0.1 }}
               className="relative aspect-square rounded-2xl overflow-hidden shadow-lg"
             >
-              <img
+              <img loading="lazy"
                 src="https://storage.googleapis.com/novelec_assets/RESTAU%20BRUNCH/Private-Dining1-800x800.png"
                 alt="Salle privée du restaurant"
                 className="w-full h-full object-cover"

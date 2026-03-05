@@ -36,7 +36,7 @@ const ProductDetail = () => {
             className="relative"
           >
             <div className="aspect-[4/3] md:aspect-square rounded-2xl md:rounded-[40px] overflow-hidden shadow-2xl">
-              <img
+              <img loading="lazy"
                 src={product.image}
                 alt={product.name}
                 className="w-full h-full object-cover"

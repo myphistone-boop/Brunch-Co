@@ -23,7 +23,7 @@ const About = () => {
 
           {/* Large portrait image */}
           <div className="rounded-2xl overflow-hidden shadow-xl mb-4 aspect-[3/4]">
-            <img
+            <img loading="lazy"
               src="https://storage.googleapis.com/novelec_assets/RESTAU%20BRUNCH/Restau%20CUISNE.jpg"
               alt="Brunch&Co Kitchen"
               className="w-full h-full object-cover"
@@ -97,7 +97,7 @@ const About = () => {
               className="relative"
             >
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl aspect-video">
-                <img
+                <img loading="lazy"
                   src="https://storage.googleapis.com/novelec_assets/RESTAU%20BRUNCH/Restau%20CUISNE.jpg"
                   alt="Brunch&Co Kitchen"
                   className="w-full h-full object-cover"

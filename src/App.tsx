@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Menu from './pages/Menu';
-import ProductDetail from './pages/ProductDetail';
-import Contact from './pages/Contact';
-import About from './pages/About';
 import BackgroundElements from './components/BackgroundElements';
+
+const Home = lazy(() => import('./pages/Home'));
+const Menu = lazy(() => import('./pages/Menu'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const Contact = lazy(() => import('./pages/Contact'));
+const About = lazy(() => import('./pages/About'));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -27,16 +28,17 @@ export default function App() {
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/reservation" element={<Navigate to="/contact" replace />} />
-              <Route path="/a-propos" element={<About />} />
-              {/* Fallback routes */}
-              <Route path="*" element={<Home />} />
-            </Routes>
+            <Suspense fallback={<div className="flex-grow" />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/menu" element={<Menu />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/reservation" element={<Navigate to="/contact" replace />} />
+                <Route path="/a-propos" element={<About />} />
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </Suspense>
           </main>
           <Footer />
         </div>
