@@ -4,7 +4,7 @@ import { Utensils, Coffee, Pizza, Croissant } from 'lucide-react';
 
 const BackgroundElements = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="hidden md:block fixed inset-0 pointer-events-none overflow-hidden z-0">
       {/* Abstract Blobs */}
       <div className="blob w-[500px] h-[500px] bg-primary -top-20 -left-20" />
       <div className="blob w-[600px] h-[600px] bg-secondary -bottom-40 -right-20" />

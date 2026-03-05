@@ -66,3 +66,16 @@
 .card-shadow {
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
 }
+
+/* Mobile: disable all framer-motion animations, show everything immediately */
+@media (max-width: 767px) {
+  [style*="opacity"],
+  [style*="transform"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-gradient {
+    background-attachment: scroll !important;
+  }
+}
