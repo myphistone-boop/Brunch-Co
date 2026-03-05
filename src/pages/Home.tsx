@@ -1,103 +1,114 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ArrowRight, ChevronLeft, ChevronRight, Leaf, ShieldCheck, Truck, Clock } from 'lucide-react';
+import { Search, ArrowRight, ChevronLeft, ChevronRight, Leaf, ShieldCheck, Truck, Clock, ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CATEGORIES, PRODUCTS } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
 const Home = () => {
+  const [storyOpen, setStoryOpen] = React.useState(false);
+  const [chefOpen, setChefOpen] = React.useState(false);
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative pt-8 pb-8 lg:pt-12 lg:pb-12 overflow-hidden">
+      <section className="relative pt-4 pb-4 md:pt-8 md:pb-8 lg:pt-12 lg:pb-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8">
-            <motion.div 
+          <div className="text-center mb-4 md:mb-8">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-3 mb-6"
+              className="inline-flex items-center gap-3 mb-3 md:mb-6"
             >
-              <div className="h-[1px] w-12 bg-primary" />
-              <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary">L'Excellence Culinaire</span>
-              <div className="h-[1px] w-12 bg-primary" />
+              <div className="h-[1px] w-8 md:w-12 bg-primary" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-primary">L'Excellence Culinaire</span>
+              <div className="h-[1px] w-8 md:w-12 bg-primary" />
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-6xl md:text-8xl font-serif italic font-medium leading-[1.1] mb-8 text-dark"
+              className="text-4xl md:text-8xl font-serif italic font-medium leading-[1.1] mb-4 md:mb-8 text-dark"
             >
               Brunch<span className="text-primary">&Co</span>
             </motion.h1>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-6 mb-8"
+              className="flex flex-wrap justify-center gap-3 md:gap-6 mb-4 md:mb-8"
             >
-              <Link to="/contact" className="bg-primary text-white px-10 py-5 rounded-full font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all transform hover:scale-105">
+              <Link to="/contact" className="bg-primary text-white px-6 py-3 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-base shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all transform hover:scale-105">
                 Réserver une Table
               </Link>
-              <Link to="/menu" className="bg-white border border-black/10 text-dark px-10 py-5 rounded-full font-bold hover:bg-dark hover:text-white transition-all transform hover:scale-105">
+              <Link to="/menu" className="bg-white border border-black/10 text-dark px-6 py-3 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-base hover:bg-dark hover:text-white transition-all transform hover:scale-105">
                 Découvrir la Carte
               </Link>
             </motion.div>
           </div>
 
-          {/* Bento Grid of Images - Replaces the "One Large Image" */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 h-[500px]">
-            <motion.div 
+          {/* Bento Grid - single image on mobile, full grid on desktop */}
+          <div className="md:hidden rounded-2xl overflow-hidden shadow-xl h-48">
+            <img
+              src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+              alt="Restaurant Atmosphere"
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="hidden md:grid md:grid-cols-4 gap-6 h-[500px]">
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               className="md:col-span-2 rounded-[2rem] overflow-hidden shadow-xl"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" 
-                alt="Restaurant Atmosphere" 
+              <img
+                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+                alt="Restaurant Atmosphere"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
             </motion.div>
             <div className="grid grid-rows-2 gap-6 md:col-span-1">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className="rounded-[2rem] overflow-hidden shadow-xl"
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=400&h=400" 
-                  alt="Chef at work" 
+                <img
+                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=400&h=400"
+                  alt="Chef at work"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
               </motion.div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 className="rounded-[2rem] overflow-hidden shadow-xl"
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=400&h=400" 
-                  alt="Signature Dish" 
+                <img
+                  src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=400&h=400"
+                  alt="Signature Dish"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
               </motion.div>
             </div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
               className="md:col-span-1 rounded-[2rem] overflow-hidden shadow-xl"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=400&h=800" 
-                alt="Brunch" 
+              <img
+                src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=400&h=800"
+                alt="Brunch"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
@@ -107,21 +118,22 @@ const Home = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-6 relative overflow-hidden">
+      <section className="py-4 md:py-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-cream/50 -skew-x-12 translate-x-1/4" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">
+            {/* Image hidden on mobile */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative hidden md:block"
             >
               <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" 
-                  alt="Chef at work" 
+                <img
+                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
+                  alt="Chef at work"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -136,33 +148,43 @@ const Home = () => {
             </motion.div>
 
             <div>
-              <div className="inline-flex items-center gap-3 mb-6">
-                <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Notre Histoire</span>
+              <div className="inline-flex items-center gap-3 mb-3 md:mb-6">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-primary">Notre Histoire</span>
                 <div className="h-[1px] w-12 bg-primary" />
               </div>
-              <h2 className="text-5xl font-serif italic mb-8 leading-tight">
-                La Passion du Goût, <br />
+              <h2 className="text-3xl md:text-5xl font-serif italic mb-4 md:mb-8 leading-tight">
+                La Passion du Goût, <br className="hidden md:block" />
                 Le Respect du <span className="text-primary">Produit</span>
               </h2>
-              <p className="text-dark/60 text-lg mb-8 leading-relaxed font-serif italic">
-                Fondé en 1998, Brunch&Co est né d'une idée simple : redonner ses lettres de noblesse à la cuisine de terroir. Notre chef, passionné par les saveurs oubliées, parcourt chaque semaine les marchés locaux pour dénicher les meilleurs produits de saison.
+              <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-8 leading-relaxed font-serif italic">
+                Fondé en 1998, Brunch&Co est né d'une idée simple : redonner ses lettres de noblesse à la cuisine de terroir.
               </p>
-              <p className="text-dark/60 text-lg mb-12 leading-relaxed">
-                Chaque plat qui sort de notre cuisine est une célébration de l'artisanat culinaire. Nous croyons que la simplicité est la sophistication suprême, et c'est cette philosophie qui guide chacun de nos gestes.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-8 mb-12">
+              {/* Collapsible on mobile */}
+              <div className={`${storyOpen ? 'block' : 'hidden'} md:block`}>
+                <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-12 leading-relaxed">
+                  Chaque plat qui sort de notre cuisine est une célébration de l'artisanat culinaire. Nous croyons que la simplicité est la sophistication suprême, et c'est cette philosophie qui guide chacun de nos gestes.
+                </p>
+              </div>
+              <button
+                onClick={() => setStoryOpen(!storyOpen)}
+                className="md:hidden flex items-center gap-2 text-primary font-bold text-sm mb-4"
+              >
+                {storyOpen ? 'Réduire' : 'En savoir plus'}
+                <ChevronDown size={16} className={`transition-transform ${storyOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <div className="grid grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-12">
                 <div>
-                  <div className="text-3xl font-serif italic text-primary mb-2">100%</div>
-                  <div className="text-sm font-bold uppercase tracking-widest text-dark/40">Fait Maison</div>
+                  <div className="text-2xl md:text-3xl font-serif italic text-primary mb-1">100%</div>
+                  <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-dark/40">Fait Maison</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-serif italic text-primary mb-2">Bio</div>
-                  <div className="text-sm font-bold uppercase tracking-widest text-dark/40">Certifié Local</div>
+                  <div className="text-2xl md:text-3xl font-serif italic text-primary mb-1">Bio</div>
+                  <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-dark/40">Certifié Local</div>
                 </div>
               </div>
 
-              <Link to="/a-propos" className="inline-flex items-center gap-3 text-dark font-bold group">
+              <Link to="/a-propos" className="inline-flex items-center gap-3 text-dark font-bold group text-sm md:text-base">
                 <span className="border-b-2 border-primary pb-1">En savoir plus sur nous</span>
                 <ArrowRight size={20} className="text-primary transition-transform group-hover:translate-x-2" />
               </Link>
@@ -172,21 +194,42 @@ const Home = () => {
       </section>
 
       {/* Signature Dishes Section */}
-      <section className="py-6">
+      <section className="py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="h-[1px] w-12 bg-gold" />
-              <span className="text-sm font-bold uppercase tracking-[0.3em] text-gold">Les Incontournables</span>
-              <div className="h-[1px] w-12 bg-gold" />
+          <div className="text-center mb-4 md:mb-10">
+            <div className="inline-flex items-center gap-3 mb-2 md:mb-4">
+              <div className="h-[1px] w-8 md:w-12 bg-gold" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-gold">Les Incontournables</span>
+              <div className="h-[1px] w-8 md:w-12 bg-gold" />
             </div>
-            <h2 className="text-5xl font-serif italic mb-4">Nos Plats <span className="text-primary">Signatures</span></h2>
-            <p className="text-dark/50 max-w-2xl mx-auto text-lg">
+            <h2 className="text-3xl md:text-5xl font-serif italic mb-2 md:mb-4">Nos Plats <span className="text-primary">Signatures</span></h2>
+            <p className="text-dark/50 max-w-2xl mx-auto text-sm md:text-lg hidden md:block">
               Une sélection exclusive de créations culinaires qui font la renommée de notre établissement.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Horizontal scroll on mobile, grid on desktop */}
+          <div className="md:hidden flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
+            {PRODUCTS.slice(0, 3).map((product) => (
+              <Link key={product.id} to={`/product/${product.id}`} className="snap-start shrink-0 w-[70vw]">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <h3 className="text-lg font-serif italic mb-1">{product.name}</h3>
+                    <span className="text-primary font-bold">€{product.price}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {PRODUCTS.slice(0, 3).map((product, i) => (
               <motion.div
                 key={product.id}
@@ -198,9 +241,9 @@ const Home = () => {
               >
                 <Link to={`/product/${product.id}`}>
                   <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
+                    <img
+                      src={product.image}
+                      alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       referrerPolicy="no-referrer"
                     />
@@ -225,31 +268,48 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-6 md:mt-10 text-center">
             <Link
               to="/menu"
-              className="inline-flex items-center gap-4 bg-dark text-white px-12 py-5 rounded-full font-bold hover:bg-dark/90 transition-all transform hover:scale-105 shadow-2xl"
+              className="inline-flex items-center gap-3 md:gap-4 bg-dark text-white px-8 py-3 md:px-12 md:py-5 rounded-full font-bold text-sm md:text-base hover:bg-dark/90 transition-all transform hover:scale-105 shadow-2xl"
             >
               Consulter la Carte Complète
-              <ArrowRight size={20} className="text-primary" />
+              <ArrowRight size={18} className="text-primary" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-6 relative overflow-hidden">
+      <section className="py-4 md:py-6 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="h-[1px] w-12 bg-gold" />
-              <span className="text-sm font-bold uppercase tracking-[0.3em] text-gold">Avis Clients</span>
-              <div className="h-[1px] w-12 bg-gold" />
+          <div className="text-center mb-4 md:mb-10">
+            <div className="inline-flex items-center gap-3 mb-2 md:mb-4">
+              <div className="h-[1px] w-8 md:w-12 bg-gold" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-gold">Avis Clients</span>
+              <div className="h-[1px] w-8 md:w-12 bg-gold" />
             </div>
-            <h2 className="text-5xl font-serif italic mb-4">Ce que l'on dit de <span className="text-primary">Brunch&Co</span></h2>
+            <h2 className="text-3xl md:text-5xl font-serif italic mb-2 md:mb-4">Ce que l'on dit de <span className="text-primary">Brunch&Co</span></h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Horizontal scroll on mobile */}
+          <div className="md:hidden flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
+            {[
+              { text: "Une expérience inoubliable. Le ris de veau était tout simplement divin.", author: "Marie L.", role: "Critique Gastronomique" },
+              { text: "Le brunch du dimanche est devenu notre rendez-vous incontournable.", author: "Thomas D.", role: "Client Fidèle" },
+              { text: "On sent la passion du chef dans chaque bouchée.", author: "Julie R.", role: "Passionnée de Cuisine" }
+            ].map((t, i) => (
+              <div key={i} className="snap-start shrink-0 w-[80vw] bg-white p-5 rounded-2xl shadow-lg border border-black/5">
+                <p className="text-dark/60 text-sm mb-4 leading-relaxed font-serif italic">"{t.text}"</p>
+                <div className="pt-3 border-t border-black/5">
+                  <div className="font-bold text-dark text-sm">{t.author}</div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-primary">{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-3 gap-12">
             {[
               {
                 text: "Une expérience inoubliable. Le ris de veau était tout simplement divin, et le service d'une élégance rare.",
@@ -275,7 +335,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 className="bg-white p-10 rounded-[3rem] shadow-2xl border border-black/5 relative"
               >
-                <div className="text-primary text-6xl font-serif absolute top-6 left-8 opacity-20">“</div>
+                <div className="text-primary text-6xl font-serif absolute top-6 left-8 opacity-20">"</div>
                 <p className="text-dark/60 text-lg mb-8 leading-relaxed font-serif italic relative z-10">
                   {testimonial.text}
                 </p>
@@ -290,34 +350,42 @@ const Home = () => {
       </section>
 
       {/* Chef Section */}
-      <section className="py-6 overflow-hidden">
+      <section className="py-4 md:py-6 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-20 items-center">
             <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-3 mb-4">
-                <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Le Chef</span>
+              <div className="inline-flex items-center gap-3 mb-2 md:mb-4">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-primary">Le Chef</span>
                 <div className="h-[1px] w-12 bg-primary" />
               </div>
-              <h2 className="text-5xl font-serif italic mb-6 leading-tight">
-                L'Excellence au Bout <br />
-                des <span className="text-primary">Doigts</span>
+              <h2 className="text-3xl md:text-5xl font-serif italic mb-3 md:mb-6 leading-tight">
+                L'Excellence au Bout des <span className="text-primary">Doigts</span>
               </h2>
-              <p className="text-dark/60 text-lg mb-8 leading-relaxed font-serif italic">
-                "La cuisine est un langage par lequel on peut exprimer l'harmonie, le bonheur, la beauté, la poésie, la complexité, la magie, l'humour, la provocation, la culture."
+              <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-8 leading-relaxed font-serif italic">
+                "La cuisine est un langage par lequel on peut exprimer l'harmonie, le bonheur, la beauté."
               </p>
-              <p className="text-dark/60 text-lg mb-8 leading-relaxed">
-                L'équipe de chef Brunch&Co apporte des décennies d'expérience dans la haute gastronomie. Leur vision est simple : laisser le produit s'exprimer. En travaillant main dans la main avec nos producteurs, ils créent une carte qui évolue au rythme de la nature.
-              </p>
-              
-              <div className="flex items-center gap-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1583394293214-28dea15ee548?auto=format&fit=crop&w=100&q=80" 
-                  alt="Signature" 
-                  className="h-16 opacity-40 grayscale"
+              <div className={`${chefOpen ? 'block' : 'hidden'} md:block`}>
+                <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-8 leading-relaxed">
+                  L'équipe de chef Brunch&Co apporte des décennies d'expérience dans la haute gastronomie. Leur vision est simple : laisser le produit s'exprimer. En travaillant main dans la main avec nos producteurs, ils créent une carte qui évolue au rythme de la nature.
+                </p>
+              </div>
+              <button
+                onClick={() => setChefOpen(!chefOpen)}
+                className="md:hidden flex items-center gap-2 text-primary font-bold text-sm mb-4"
+              >
+                {chefOpen ? 'Réduire' : 'En savoir plus'}
+                <ChevronDown size={16} className={`transition-transform ${chefOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <div className="flex items-center gap-4 md:gap-6">
+                <img
+                  src="https://images.unsplash.com/photo-1583394293214-28dea15ee548?auto=format&fit=crop&w=100&q=80"
+                  alt="Signature"
+                  className="h-12 md:h-16 opacity-40 grayscale"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <div className="font-serif italic text-xl">L'Équipe Brunch&Co</div>
+                  <div className="font-serif italic text-lg md:text-xl">L'Équipe Brunch&Co</div>
                   <div className="text-xs font-bold uppercase tracking-widest text-primary">Chef de Cuisine</div>
                 </div>
               </div>
@@ -329,42 +397,37 @@ const Home = () => {
               viewport={{ once: true }}
               className="order-1 lg:order-2 relative"
             >
-              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl aspect-video">
-                <img 
-                  src="https://storage.googleapis.com/novelec_assets/RESTAU%20BRUNCH/Restau%20CUISNE.jpg" 
-                  alt="L'Équipe Brunch&Co" 
+              <div className="relative z-10 rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl aspect-video">
+                <img
+                  src="https://storage.googleapis.com/novelec_assets/RESTAU%20BRUNCH/Restau%20CUISNE.jpg"
+                  alt="L'Équipe Brunch&Co"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="absolute -top-10 -right-10 w-40 h-40 border-2 border-gold/20 rounded-full" />
-              <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-primary/10 rounded-full blur-3xl" />
+              <div className="absolute -top-10 -right-10 w-40 h-40 border-2 border-gold/20 rounded-full hidden md:block" />
+              <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-primary/10 rounded-full blur-3xl hidden md:block" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Reservation CTA */}
-      <section className="py-6">
+      <section className="py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark rounded-[4rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="bg-dark rounded-2xl md:rounded-[4rem] p-6 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-3 mb-6">
-                <div className="h-[1px] w-12 bg-gold" />
-                <span className="text-sm font-bold uppercase tracking-[0.3em] text-gold">Réservation</span>
-                <div className="h-[1px] w-12 bg-gold" />
-              </div>
-              <h2 className="text-5xl font-serif italic mb-6">Réservez votre Table <br /> pour ce Soir</h2>
-              <p className="text-white/60 text-xl mb-8 max-w-2xl mx-auto font-serif italic">
-                "Vivez une expérience gastronomique unique dans un cadre d'exception."
+              <h2 className="text-2xl md:text-5xl font-serif italic mb-3 md:mb-6">Réservez votre Table</h2>
+              <p className="text-white/60 text-sm md:text-xl mb-4 md:mb-8 max-w-2xl mx-auto">
+                Vivez une expérience gastronomique unique.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-4 bg-primary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all transform hover:scale-105 shadow-2xl shadow-primary/40"
+                className="inline-flex items-center gap-3 bg-primary text-white px-8 py-3 md:px-12 md:py-5 rounded-full font-bold text-sm md:text-lg hover:bg-primary/90 transition-all transform hover:scale-105 shadow-2xl shadow-primary/40"
               >
                 Réserver Maintenant
-                <ArrowRight size={24} />
+                <ArrowRight size={20} />
               </Link>
             </div>
           </div>
