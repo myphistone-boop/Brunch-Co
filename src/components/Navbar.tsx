@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Menu as MenuIcon, X } from 'lucide-react';
+import { Menu as MenuIcon, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const Navbar = () => {
@@ -55,9 +55,6 @@ const Navbar = () => {
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-5">
-            <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
-              <Search size={20} />
-            </button>
             <Link
               to="/contact"
               className="bg-primary text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
