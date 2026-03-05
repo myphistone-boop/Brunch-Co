@@ -162,10 +162,10 @@ const Home = () => {
                 La Passion du Goût, <br />
                 Le Respect du <span className="text-primary">Produit</span>
               </h2>
-              <p className="text-dark/60 text-lg mb-8 leading-relaxed font-serif italic">
+              <p className="text-dark text-lg mb-8 leading-relaxed font-serif italic font-semibold">
                 Fondé en 1998, Brunch&Co est né d'une idée simple : redonner ses lettres de noblesse à la cuisine de terroir.
               </p>
-              <p className="text-dark/60 text-lg mb-12 leading-relaxed">
+              <p className="text-dark text-lg mb-12 leading-relaxed font-semibold">
                 Chaque plat qui sort de notre cuisine est une célébration de l'artisanat culinaire. Nous croyons que la simplicité est la sophistication suprême, et c'est cette philosophie qui guide chacun de nos gestes.
               </p>
 
@@ -312,7 +312,7 @@ const Home = () => {
               { text: "On sent la passion du chef dans chaque bouchée.", author: "Julie R.", role: "Passionnée de Cuisine" }
             ].map((t, i) => (
               <div key={i} className="snap-start shrink-0 w-[80vw] bg-white p-5 rounded-2xl shadow-lg border border-black/5">
-                <p className="text-dark/60 text-sm mb-4 leading-relaxed font-serif italic">"{t.text}"</p>
+                <p className="text-dark text-sm mb-4 leading-relaxed font-serif italic font-semibold">"{t.text}"</p>
                 <div className="pt-3 border-t border-black/5">
                   <div className="font-bold text-dark text-sm">{t.author}</div>
                   <div className="text-xs font-bold uppercase tracking-widest text-primary">{t.role}</div>
@@ -348,7 +348,7 @@ const Home = () => {
                 className="bg-white p-10 rounded-[3rem] shadow-2xl border border-black/5 relative"
               >
                 <div className="text-primary text-6xl font-serif absolute top-6 left-8 opacity-20">"</div>
-                <p className="text-dark/60 text-lg mb-8 leading-relaxed font-serif italic relative z-10">
+                <p className="text-dark text-lg mb-8 leading-relaxed font-serif italic font-semibold relative z-10">
                   {testimonial.text}
                 </p>
                 <div className="pt-6 border-t border-black/5">
@@ -373,11 +373,11 @@ const Home = () => {
               <h2 className="text-3xl md:text-5xl font-serif italic mb-3 md:mb-6 leading-tight">
                 L'Excellence au Bout des <span className="text-primary">Doigts</span>
               </h2>
-              <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-8 leading-relaxed font-serif italic">
+              <p className="text-dark text-base md:text-lg mb-4 md:mb-8 leading-relaxed font-serif italic font-semibold">
                 "La cuisine est un langage par lequel on peut exprimer l'harmonie, le bonheur, la beauté."
               </p>
               <div className={`${chefOpen ? 'block' : 'hidden'} md:block`}>
-                <p className="text-dark/60 text-base md:text-lg mb-4 md:mb-8 leading-relaxed">
+                <p className="text-dark text-base md:text-lg mb-4 md:mb-8 leading-relaxed font-semibold">
                   L'équipe de chef Brunch&Co apporte des décennies d'expérience dans la haute gastronomie. Leur vision est simple : laisser le produit s'exprimer. En travaillant main dans la main avec nos producteurs, ils créent une carte qui évolue au rythme de la nature.
                 </p>
               </div>

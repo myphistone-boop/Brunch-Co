@@ -35,12 +35,12 @@ const About = () => {
           <h2 className="text-xl font-serif italic mb-3 leading-tight">
             L'Équipe de Chef <span className="text-primary">Brunch&Co</span>
           </h2>
-          <p className="text-dark text-[15px] leading-relaxed font-serif italic mb-3">
+          <p className="text-dark text-[15px] leading-relaxed font-serif italic font-semibold mb-3">
             Formée dans les plus grandes cuisines étoilées de France, l'équipe a décidé de revenir à l'essentiel : une cuisine de terroir, sincère et généreuse.
           </p>
 
           {storyOpen && (
-            <p className="text-dark text-[15px] leading-relaxed mb-3">
+            <p className="text-dark text-[15px] leading-relaxed font-semibold mb-3">
               Chez Brunch&Co, nous ne nous contentons pas de cuisiner ; nous célébrons chaque ingrédient. Notre équipe est composée de passionnés qui partagent une vision commune : offrir une expérience sensorielle complète, où chaque détail compte.
             </p>
           )}
@@ -84,7 +84,7 @@ const About = () => {
               <div className="h-[1px] w-12 bg-gold" />
             </div>
             <h1 className="text-6xl font-serif italic mb-6">L'Héritage de la <span className="text-primary">Passion</span></h1>
-            <p className="text-dark max-w-2xl mx-auto text-lg font-serif italic">
+            <p className="text-dark max-w-2xl mx-auto text-lg font-serif italic font-semibold">
               "Une aventure culinaire commencée il y a 25 ans, guidée par l'amour du goût et le respect de la nature."
             </p>
           </div>
@@ -116,10 +116,10 @@ const About = () => {
               <h2 className="text-4xl font-serif italic mb-8 leading-tight">
                 L'Équipe de Chef <span className="text-primary">Brunch&Co</span>
               </h2>
-              <p className="text-dark text-lg mb-8 leading-relaxed font-serif italic">
+              <p className="text-dark text-lg mb-8 leading-relaxed font-serif italic font-semibold">
                 Formée dans les plus grandes cuisines étoilées de France, l'équipe de chef Brunch&Co a décidé de revenir à l'essentiel : une cuisine de terroir, sincère et généreuse.
               </p>
-              <p className="text-dark text-lg mb-12 leading-relaxed">
+              <p className="text-dark text-lg mb-12 leading-relaxed font-semibold">
                 Chez Brunch&Co, nous ne nous contentons pas de cuisiner ; nous célébrons chaque ingrédient. Notre équipe est composée de passionnés qui partagent une vision commune : offrir une expérience sensorielle complète, où chaque détail compte.
               </p>
 
