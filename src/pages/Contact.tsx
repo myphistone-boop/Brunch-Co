@@ -192,25 +192,25 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 md:grid-cols-3 md:gap-6">
-                  <div className="space-y-1 md:space-y-2">
-                    <label className="text-[10px] md:text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-1 md:gap-2">
-                      <Calendar size={12} className="text-primary" /> Date
+                <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-6">
+                  <div className="col-span-2 md:col-span-1 space-y-1 md:space-y-2">
+                    <label className="text-xs md:text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-1 md:gap-2">
+                      <Calendar size={14} className="text-primary" /> Date
                     </label>
                     <input
                       type="date"
                       required
-                      className="w-full bg-cream border border-black/10 py-3 md:py-4 px-2 md:px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none text-sm md:text-base"
+                      className="w-full bg-cream border border-black/10 py-3 md:py-4 px-4 md:px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none text-sm md:text-base"
                       onChange={(e) => setFormData({...formData, date: e.target.value})}
                     />
                   </div>
                   <div className="space-y-1 md:space-y-2">
-                    <label className="text-[10px] md:text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-1 md:gap-2">
-                      <ClockIcon size={12} className="text-primary" /> Heure
+                    <label className="text-xs md:text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-1 md:gap-2">
+                      <ClockIcon size={14} className="text-primary" /> Heure
                     </label>
                     <select
                       required
-                      className="w-full bg-cream border border-black/10 py-3 md:py-4 px-2 md:px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
+                      className="w-full bg-cream border border-black/10 py-3 md:py-4 px-3 md:px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
                       onChange={(e) => setFormData({...formData, time: e.target.value})}
                     >
                       <option value="">Choisir...</option>
@@ -225,12 +225,12 @@ const Contact = () => {
                     </select>
                   </div>
                   <div className="space-y-1 md:space-y-2">
-                    <label className="text-[10px] md:text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-1 md:gap-2">
-                      <Users size={12} className="text-primary" /> Pers.
+                    <label className="text-xs md:text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-1 md:gap-2">
+                      <Users size={14} className="text-primary" /> Personnes
                     </label>
                     <select
                       required
-                      className="w-full bg-cream border border-black/10 py-3 md:py-4 px-2 md:px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
+                      className="w-full bg-cream border border-black/10 py-3 md:py-4 px-3 md:px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
                       onChange={(e) => setFormData({...formData, guests: e.target.value})}
                     >
                       {[1,2,3,4,5,6,7,8].map(n => (
