@@ -20,10 +20,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/20">
-              B
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 14c0 3.5 2.5 6 6.5 6H14c4 0 6.5-2.5 6.5-6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M5 14V8a2 2 0 012-2h10a2 2 0 012 2v6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M19 9h1.5a2 2 0 010 4H19" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M8 6V4M12 6V3M16 6V4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
             </div>
-            <span className="text-2xl font-serif italic font-bold tracking-tight">Brunch&Co</span>
+            <span className="text-2xl font-serif italic font-bold tracking-tight">Brunch<span className="text-primary">&</span>Co</span>
           </Link>
 
           {/* Desktop Nav */}

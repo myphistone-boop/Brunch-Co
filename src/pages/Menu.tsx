@@ -9,8 +9,9 @@ const Menu = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const filteredProducts = PRODUCTS.filter(product => {
-    const categories = Array.isArray(product.category) ? product.category : [product.category];
-    const matchesCategory = activeCategory === 'Tout' || categories.includes(activeCategory.toLowerCase());
+    const productCategories = Array.isArray(product.category) ? product.category : [product.category];
+    const activeCategoryId = CATEGORIES.find(c => c.name === activeCategory)?.id;
+    const matchesCategory = activeCategory === 'Tout' || productCategories.includes(activeCategoryId || '');
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });

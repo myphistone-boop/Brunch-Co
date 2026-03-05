@@ -9,9 +9,9 @@ const Home = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-cream">
+      <section className="relative pt-8 pb-8 lg:pt-12 lg:pb-12 overflow-hidden bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-6 mb-16"
+              className="flex flex-wrap justify-center gap-6 mb-8"
             >
               <Link to="/reservation" className="bg-primary text-white px-10 py-5 rounded-full font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all transform hover:scale-105">
                 Réserver une Table
@@ -107,7 +107,7 @@ const Home = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-12 bg-white relative overflow-hidden">
+      <section className="py-6 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-cream/50 -skew-x-12 translate-x-1/4" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -172,7 +172,7 @@ const Home = () => {
       </section>
 
       {/* Signature Dishes Section */}
-      <section className="py-12 bg-cream">
+      <section className="py-6 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -238,7 +238,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 bg-cream relative overflow-hidden">
+      <section className="py-6 bg-cream relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -290,7 +290,7 @@ const Home = () => {
       </section>
 
       {/* Chef Section */}
-      <section className="py-12 bg-white overflow-hidden">
+      <section className="py-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1">
@@ -345,7 +345,7 @@ const Home = () => {
       </section>
 
       {/* Reservation CTA */}
-      <section className="py-12">
+      <section className="py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-dark rounded-[4rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
