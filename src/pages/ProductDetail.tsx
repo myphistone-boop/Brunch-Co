@@ -101,7 +101,7 @@ const ProductDetail = () => {
 
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <Link 
-                to="/reservation"
+                to="/contact"
                 className="flex-1 w-full bg-primary text-white py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-primary/90 transition-all shadow-2xl shadow-primary/20"
               >
                 Réserver une table

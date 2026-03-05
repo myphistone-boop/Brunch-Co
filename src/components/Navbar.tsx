@@ -52,7 +52,7 @@ const Navbar = () => {
               <Search size={20} />
             </button>
             <Link
-              to="/reservation"
+              to="/contact"
               className="bg-primary text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
             >
               Réservation
@@ -93,7 +93,7 @@ const Navbar = () => {
               ))}
               <div className="pt-4 flex flex-col gap-3">
                 <Link
-                  to="/reservation"
+                  to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="w-full bg-primary text-white text-center py-3 rounded-lg font-medium shadow-lg shadow-primary/20"
                 >

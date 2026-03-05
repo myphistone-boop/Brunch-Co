@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import ProductDetail from './pages/ProductDetail';
 import Contact from './pages/Contact';
-import Reservation from './pages/Reservation';
 import About from './pages/About';
 import BackgroundElements from './components/BackgroundElements';
 
@@ -33,7 +32,7 @@ export default function App() {
               <Route path="/menu" element={<Menu />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/reservation" element={<Reservation />} />
+              <Route path="/reservation" element={<Navigate to="/contact" replace />} />
               <Route path="/a-propos" element={<About />} />
               {/* Fallback routes */}
               <Route path="*" element={<Home />} />

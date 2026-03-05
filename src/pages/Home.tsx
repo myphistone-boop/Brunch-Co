@@ -37,7 +37,7 @@ const Home = () => {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap justify-center gap-6 mb-8"
             >
-              <Link to="/reservation" className="bg-primary text-white px-10 py-5 rounded-full font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all transform hover:scale-105">
+              <Link to="/contact" className="bg-primary text-white px-10 py-5 rounded-full font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all transform hover:scale-105">
                 Réserver une Table
               </Link>
               <Link to="/menu" className="bg-white border border-black/10 text-dark px-10 py-5 rounded-full font-bold hover:bg-dark hover:text-white transition-all transform hover:scale-105">
@@ -360,7 +360,7 @@ const Home = () => {
                 "Vivez une expérience gastronomique unique dans un cadre d'exception."
               </p>
               <Link
-                to="/reservation"
+                to="/contact"
                 className="inline-flex items-center gap-4 bg-primary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all transform hover:scale-105 shadow-2xl shadow-primary/40"
               >
                 Réserver Maintenant

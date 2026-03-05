@@ -1,11 +1,20 @@
 import React from 'react';
-import { Phone, MapPin, Send, MessageSquare, Clock } from 'lucide-react';
+import { Phone, MapPin, Send, Calendar, Clock as ClockIcon, Users, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const Contact = () => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    phone: '',
+    date: '',
+    time: '',
+    guests: '2',
+    message: ''
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Votre message a été envoyé. Nous vous répondrons dès que possible.');
+    alert('Votre demande de réservation a été envoyée. Nous vous contacterons sous peu pour confirmer.');
   };
 
   return (
@@ -85,7 +94,7 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* Contact Form */}
+          {/* Reservation Form */}
           <div className="lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,8 +102,8 @@ const Contact = () => {
               className="bg-white p-10 rounded-3xl shadow-lg border border-black/5"
             >
               <h2 className="text-2xl font-bold text-dark mb-8 flex items-center gap-3">
-                <MessageSquare size={28} className="text-primary" />
-                Envoyez-nous un message
+                <Calendar size={28} className="text-primary" />
+                Réserver une Table
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -106,6 +115,7 @@ const Contact = () => {
                       required
                       placeholder="Jean Dupont"
                       className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark placeholder:text-dark/40 focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all outline-none"
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
                     />
                   </div>
                   <div className="space-y-2">
@@ -115,27 +125,67 @@ const Contact = () => {
                       required
                       placeholder="06 12 34 56 78"
                       className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark placeholder:text-dark/40 focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all outline-none"
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-dark uppercase tracking-wider">Sujet</label>
-                  <select className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all appearance-none cursor-pointer outline-none">
-                    <option>Réservation de Groupe</option>
-                    <option>Question sur le Menu</option>
-                    <option>Événement Privé</option>
-                    <option>Autre</option>
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-2">
+                      <Calendar size={14} className="text-primary" /> Date
+                    </label>
+                    <input
+                      type="date"
+                      required
+                      className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none"
+                      onChange={(e) => setFormData({...formData, date: e.target.value})}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-2">
+                      <ClockIcon size={14} className="text-primary" /> Heure
+                    </label>
+                    <select
+                      required
+                      className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer"
+                      onChange={(e) => setFormData({...formData, time: e.target.value})}
+                    >
+                      <option value="">Choisir...</option>
+                      <option>12:00</option>
+                      <option>12:30</option>
+                      <option>13:00</option>
+                      <option>19:00</option>
+                      <option>19:30</option>
+                      <option>20:00</option>
+                      <option>20:30</option>
+                      <option>21:00</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-dark uppercase tracking-wider flex items-center gap-2">
+                      <Users size={14} className="text-primary" /> Personnes
+                    </label>
+                    <select
+                      required
+                      className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark focus:ring-2 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer"
+                      onChange={(e) => setFormData({...formData, guests: e.target.value})}
+                    >
+                      {[1,2,3,4,5,6,7,8].map(n => (
+                        <option key={n} value={n}>{n} {n > 1 ? 'Personnes' : 'Personne'}</option>
+                      ))}
+                      <option value="9+">9+ Personnes</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-dark uppercase tracking-wider">Votre Message</label>
+                  <label className="text-sm font-bold text-dark uppercase tracking-wider">Demandes Spéciales (Optionnel)</label>
                   <textarea
-                    required
-                    rows={5}
-                    placeholder="Comment pouvons-nous vous aider ?"
+                    rows={4}
+                    placeholder="Allergies, anniversaire, préférence de table..."
                     className="w-full bg-cream border border-black/10 py-4 px-5 rounded-xl text-dark placeholder:text-dark/40 focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all resize-none outline-none"
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
                   ></textarea>
                 </div>
 
@@ -143,9 +193,13 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-primary text-white py-5 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 group"
                 >
-                  Envoyer le Message
+                  Confirmer la Réservation
                   <Send size={20} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>
+
+                <p className="text-center text-dark/40 text-sm">
+                  * Nous vous contacterons pour confirmer votre réservation.
+                </p>
               </form>
             </motion.div>
           </div>
